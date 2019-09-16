@@ -1,0 +1,113 @@
+<resources>
+
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_ratingbar_selector</item>
+        <item name="android:minHeight">20dp</item>
+        <item name="android:maxHeight">30dp</item>
+    </style>
+
+    <style name="btnFont">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:height">52dp</item>
+        <item name="android:width">320dp</item>
+    </style>
+
+    <style name="btnDialogFont">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:height">52dp</item>
+        <item name="android:width">320dp</item>
+    </style>
+
+    <style name="editTxt" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:height">52dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:width">320dp</item>
+    </style>
+
+    <style name="titleStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="titulosStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:background">@color/colorOlive</item>
+        <item name="android:height">@dimen/titulos_height</item>
+    </style>
+
+    <style name="titulosListStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:background">@color/colorBackGroundGreen</item>
+    </style>
+
+    <style name="subtitleStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="normalTxtStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="Theme.Dialog"
+        parent="android:Widget.Material.Light.TimePicker">
+
+        <item name="android:colorAccent">@color/colorGreenBtn</item>
+        <item name="android:colorPrimary">@color/colorGreenBtn</item>
+        <item name="android:colorPrimaryDark">@color/colorGreenBtn</item>
+        <item name="android:buttonStyle">@style/btnDialogFont</item>
+        <item name="android:textColor">@color/colorGreenBtn</item>
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:colorBackground">@color/colorWhite</item>
+        <item name="buttonStyle">@style/btnFont</item>
+        <item name="editTextStyle">@style/editTxt</item>
+        <item name="android:textViewStyle">@style/normalTxtStyle</item>
+        <item name="android:timePickerStyle">@style/Theme.Dialog</item> <!-- TimePicker dialog -->
+        <item name="buttonBarStyle">@style/Widget.AppCompat.ButtonBar</item>
+        <item name="buttonBarButtonStyle">@style/AppTheme.Button</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AppTheme.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AppTheme.Button</item>
+        <item name="buttonBarNeutralButtonStyle">@style/AppTheme.Button</item>
+    </style>
+
+    <style name="editTxtFormulario" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/colorBackGroundGreen</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:height">52dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:width">320dp</item>
+    </style>
+
+    <style name="AppTheme.Button">
+        <item name="android:textColor">@color/colorBackGroundGreen</item>
+    </style>
+
+</resources>

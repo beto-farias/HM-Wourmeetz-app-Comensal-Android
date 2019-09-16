@@ -1,0 +1,139 @@
+<resources>
+
+    <string name="app_name">Wourmeetz_Comensal</string>
+    <string name="facebook_application_id" translatable="false">500791747157377</string>
+    <string name="facebook_login_protcol_scheme" translatable="false">fb500791747157377</string>
+
+    <string name="app_title_login">Ingreso de Comensales</string>
+    <string name="btn_login_ingresar">Ingresar</string>
+    <string name="btn_login_facebook">Ingresar con Facebook</string>
+
+    <string name="no_internet_error">No existe conexión a internet</string>
+    <string name="crear_cuenta_desc">Para poder crear tu cuenta es necesario nos ayudes llenando los siguientes datos:</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellidos</string>
+    <string name="user_name">Correo electrónico</string>
+    <string name="user_name_confirm">Confirmar correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="password_confirm">Confirmar contraseña</string>
+    <string name="crear_cuenta">Quiero crear una cuenta a partir de mi correo electrónico</string>
+    <string name="registrar">Registrarme</string>
+    <string name="estoy_registrado">Ya estoy registrado</string>
+    <string name="olvido_contraseña">Olvide mi contraseña</string>
+    <string name="ya_registrado">Ya estoy registrado</string>
+    <string name="error_nombre">Indica tu nombre</string>
+    <string name="error_apellido">Indica tu apellido</string>
+    <string name="error_correo">Indica tu correo</string>
+    <string name="error_pwd">Indica tu contraseña</string>
+    <string name="error_telefono">Indica tu número telefónico</string>
+    <string name="error_correo_confirm">Confirma tu correo</string>
+    <string name="error_pwd_confirm">Confirma tu contraseña</string>
+    <string name="error_correo_equals">Los correos deben coincidir</string>
+    <string name="error_pwd_equals">La constraseña debe coincidir</string>
+    <string name="espere_un_momento">Espere un momento</string>
+
+
+    <string name="aviso_privacidad">Aviso de Privacidad</string>
+    <string name="recover_password">Recuperar Contraseña</string>
+    <string name="recover_password_instructions">Para recuperar su contraseña debe indicar el correo electrónico con el que creo su cuenta, ahí se le enviarán las instrucciones para poder recuperar su contraseña</string>
+    <string name="indica_correo">Indica tú correo electrónico</string>
+    <string name="terminos_condiciones">Términos y condiciones</string>
+    <string name="aceptar_tyc">Acepto términos y condiciones</string>
+    <string name="acepto_privacidad">Acepto aviso de privacidad</string>
+    <string name="ver_tyc">Ver terminos y condiciones</string>
+    <string name="ver_politicas">Ver aviso de privacidad</string>
+    <string name="menu_crear_cuenta">Crear cuenta</string>
+    <string name="telefono">Teléfono</string>
+    <string name="nombre_empresa">Nombre Empresa</string>
+    <string name="descripcion">Descripción</string>
+    <string name="anfitriones">Anfitriones</string>
+    <string name="compras">Mis compras</string>
+    <string name="num_asientos">Número de asientos</string>
+    <string name="menus_hoy">Menús de hoy</string>
+    <string name="horario">Horario</string>
+    <string name="platillos">Platillos</string>
+    <string name="precio">Precio</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="cant_num">1</string>
+    <string name="comprar">Comprar</string>
+
+
+    //-----------OPENPAY
+
+    <string name="card_created">Tarjeta registrada correctamente</string>
+    <string name="button_save">Guardar</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="holder_name">Titular</string>
+    <string name="card_number">Número de tarjeta</string>
+    <string name="cvv">CVV2</string>
+    <string name="info">Información</string>
+    <string name="error">Error</string>
+    <string name="card_added">Tarjeta registrada</string>
+    <string name="invalid_card_number">Número inválido</string>
+    <string name="invalid_holder_name">Titular es requerido</string>
+    <string name="invalid_cvv">Código de seguridad inválido</string>
+    <string name="invalid_expire_date">Fecha de expiracion inválida</string>
+    <string name="progress_message">Procesando...</string>
+    <string name="declined">La tarjeta fue rechazada</string>
+    <string name="expired">La tarjeta ha expirado</string>
+    <string name="insufficient_funds">La tarjeta no tiene fondos suficientes</string>
+    <string name="stolen_card">La tarjeta ha sido identificada como una tarjeta robada</string>
+    <string name="suspected_fraud">La tarjeta ha sido identificada como una tarjeta fraudulenta.</string>
+    <string name="communication_error">No se puede establecer comunicacion con el servidor</string>
+    <string name="already_exists">La tarjeta ya se encuentra registrada</string>
+    <string name="error_creating_card">Ocurrio un error al regitrar la tarjeta</string>
+
+
+    <string-array name="year_array">
+        <item>Año</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+    </string-array>
+
+
+    <string-array name="month_array">
+        <item>Mes</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string name="add_card">Guardar tarjeta</string>
+    <string name="checkout">Generar</string>
+    <string name="sessionId">Device session id: </string>
+    <string name="getSessionId">Generar device session id</string>
+    <string name="card">Tarjeta</string>
+    <string name="token">Token</string>
+    <string name="datos_tarjeta">Tarjeta</string>
+    <string name="card_num_example">XXXX XXXX XXXX XXXX</string>
+    <string name="codigo_seguridad">Código de Seguridad</string>
+    <string name="fecha_expiracion">Fecha de expiración</string>
+    <string name="diagonal">/</string>
+    <string name="realizar_pago">Realizar Pago</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="search">Búsqueda</string>
+    <string name="Reservar">Reservar</string>
+    <string name="tu_pedido">Tu pedido en</string>
+    <string name="Total">Total</string>
+    <string name="datos_personales">Datos personales</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="abrir">abrir</string>
+    <string name="cerrar">cerrar</string>
+
+
+</resources>

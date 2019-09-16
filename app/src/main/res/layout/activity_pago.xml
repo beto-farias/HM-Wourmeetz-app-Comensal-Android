@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/menu"
+        layout="@layout/menu_navegacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/titulosStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/datos_tarjeta" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_l" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:text="@string/nombre"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/holder_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:layout_marginEnd="@dimen/margin_l"
+                android:background="@drawable/rounded_border"
+                android:hint="@string/holder_name"
+                android:nextFocusDown="@id/card_number" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_s" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:text="@string/card_number"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/card_number"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:layout_marginEnd="@dimen/margin_l"
+                android:background="@drawable/rounded_border"
+                android:hint="@string/card_num_example"
+                android:inputType="numberDecimal"
+                android:maxLength="16"
+                android:nextFocusDown="@id/cvv2" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_s" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:text="@string/codigo_seguridad"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cvv2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:layout_marginEnd="@dimen/margin_l"
+                android:background="@drawable/rounded_border"
+                android:hint="@string/cvv"
+                android:inputType="numberDecimal"
+                android:maxLength="4"
+                android:nextFocusDown="@id/year_spinner"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_s" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:text="@string/fecha_expiracion"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_l"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/padding_item_start">
+
+                <Spinner
+                    android:id="@+id/year_spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/year_array" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/diagonal"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/month_spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/month_array" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_l" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_s" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/pading_s">
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_green"
+                    android:onClick="cancelar"
+                    android:text="@string/cancelar" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_green"
+                    android:onClick="saveCard"
+                    android:text="@string/realizar_pago" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleAnfitrionActivity">
+
+    <include
+        android:id="@+id/menu"
+        layout="@layout/menu_navegacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/pading_s"
+                android:paddingStart="@dimen/padding_item_start"
+                android:text="@string/descripcion"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_desc_corta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/pading_s"
+                android:paddingStart="@dimen/padding_item_start"
+                android:text="@string/descripcion" />
+
+            <TextView
+                android:id="@+id/txt_desc_completa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/pading_s"
+                android:paddingStart="@dimen/padding_item_start"
+                android:paddingEnd="@dimen/padding_item_start"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/titulosStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:paddingStart="@dimen/padding_item_start"
+                android:text="@string/num_asientos" />
+
+            <TextView
+                android:id="@+id/txt_num_asientos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/pading_s"
+                android:paddingStart="@dimen/padding_item_start"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/titulosStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="bottom"
+                android:paddingStart="@dimen/padding_item_start"
+                android:text="@string/menus_hoy" />
+
+            <mx.com.dgom.hm.wourmeetz_comensal.utils.NonScrollListView
+                android:id="@+id/list_menus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/colorBackGroundGreen"
+                android:dividerHeight="2dp"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleMenuActivity">
+
+    <include
+        android:id="@+id/menu"
+        layout="@layout/menu_navegacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu">
+
+        <TextView
+            android:id="@+id/txt_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_s"
+            android:paddingStart="@dimen/padding_item_start"
+            android:paddingEnd="@dimen/padding_item_start"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/titulosStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/horario" />
+
+        <TextView
+            android:id="@+id/txt_hora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_s"
+            android:paddingStart="@dimen/padding_item_start"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/titulosStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/platillos" />
+
+        <android.widget.LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorOlive"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:clipChildren="true"
+                android:orientation="horizontal">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.widget.LinearLayout>
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/titulosStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/precio" />
+
+        <TextView
+            android:id="@+id/txt_precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_s"
+            android:paddingStart="@dimen/padding_item_start"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/pading_s">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cantidad"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/txt_cantidad"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_border"
+                android:ems="10"
+                android:hint="@string/cant_num"
+                android:inputType="textPersonName"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_reservar"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_green"
+                android:onClick="reservar"
+                android:text="@string/Reservar" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_green"
+                android:onClick="comprar"
+                android:text="@string/comprar" />
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

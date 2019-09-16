@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="topImg">200dp</dimen>
+    <dimen name="dotsHeightSize">52dp</dimen>
+    <dimen name="titleWidthSize">300dp</dimen>
+    <dimen name="notification_height">200dp</dimen>
+    <dimen name="btn_slide_width">100dp</dimen>
+    <dimen name="dots_size">10dp</dimen>
+    <dimen name="slide_height">700dp</dimen>
+    <dimen name="menu_height">70dp</dimen>
+    <dimen name="list_height">500dp</dimen>
+    <dimen name="padding_content_list">8dp</dimen>
+    <dimen name="dotsWidthSize">50dp</dimen>
+    <dimen name="form_menu_height">70dp</dimen>
+    <dimen name="img_menu_width">30dp</dimen>
+    <dimen name="img_menu_height">70dp</dimen>
+    <dimen name="divider_menu">8dp</dimen>
+    <dimen name="menu_item_margin">10dp</dimen>
+    <dimen name="nombre_size">100dp</dimen>
+    <dimen name="menu_width">500dp</dimen>
+    <dimen name="nombre_dim">200dp</dimen>
+    <dimen name="titulo_pantalla">18dp</dimen>
+    <dimen name="sib_title">17dp</dimen>
+    <dimen name="titulos_height">50dp</dimen>
+    <dimen name="photo_width">90dp</dimen>
+    <dimen name="photo_height">90dp</dimen>
+    <dimen name="padding_top_image">8dp</dimen>
+    <dimen name="pading_s">4dp</dimen>
+    <dimen name="pading_m">8dp</dimen>
+    <dimen name="pading_l">16dp</dimen>
+    <dimen name="map_h">300dp</dimen>
+    <dimen name="top_bar_h">60dp</dimen>
+    <dimen name="top_bar_text">22sp</dimen>
+    <dimen name="text_xl">40sp</dimen>
+    <dimen name="height_menu" />
+    <dimen name="min_button_h">20dp</dimen>
+    <dimen name="min_button_font">14sp</dimen>
+    <dimen name="dot_font_size">30sp</dimen>
+    <dimen name="table_row_tipo_servicio_h">40sp</dimen>
+    <dimen name="image_text_adapter_icon">30sp</dimen>
+    <dimen name="image_detail_h">250dp</dimen>
+    <dimen name="padding_item_start">16dp</dimen>
+    <dimen name="space_s">8dp</dimen>
+    <dimen name="space_l">16dp</dimen>
+    <dimen name="margin_l">32dp</dimen>
+</resources>
