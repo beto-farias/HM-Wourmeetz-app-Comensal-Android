@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -17,6 +18,8 @@ import mx.com.dgom.hm.wourmeetz_comensal.to.AnfitrionTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.MenuCalendarioTO;
 
 public class ListMenusCalendariosAdapter extends ArrayAdapter {
+
+    private DecimalFormat df = new DecimalFormat("#,##0.00");
     private Context context;
     private ArrayList<MenuCalendarioTO> datos;
 
@@ -59,7 +62,7 @@ public class ListMenusCalendariosAdapter extends ArrayAdapter {
             txtNombreMenu.setText(menuTO.getMenu().getNombre());
             txtHorario.setText(menuTO.getHora_inicio() + " - " + menuTO.getHora_fin());
             txtDesc.setText(menuTO.getMenu().getDescripcion());
-            txtCosto.setText("$ " + menuTO.getMonto_venta());
+            txtCosto.setText("$ " + df.format( menuTO.getMonto_venta()));
         }else{
             view = View.inflate(this.context, R.layout.header_item, null);
             TextView txtHeader = (TextView) view.findViewById(R.id.txt_header);
@@ -68,6 +71,8 @@ public class ListMenusCalendariosAdapter extends ArrayAdapter {
 
         return view;
     }
+
+
 
     private void crearMapa() {
 

@@ -19,7 +19,7 @@ public class AppConstantes {
    private static final String API_REST_URL_LOCAL          = "http://192.168.0.11:8080/2019/hungryMom/hungryMom/web/service-comensal/";
     private static final String API_REST_URL_DEV            = "http://dev.2geeksonemonkey.com/hungryMom/hungryMom/web/service-comensal/";
     public static final String API_URL_IMAGES               = "http://dev.2geeksonemonkey.com/hungryMom/hungryMom/web/";
-     private static final String API_REST_URL_QA             = "";
+     private static final String API_REST_URL_QA            = "";
 
     //Nombre Servicios
     public static final String API_REST_VERSION_ANDROID     = "http://dev.2geeksonemonkey.com/hungryMom/hungryMom/web/service/version-android";
@@ -29,10 +29,10 @@ public class AppConstantes {
     public static final String API_CREAR_CUENTA             = "crear-cuenta";
     public static final String API_TYC                      = "http://dev.2geeksonemonkey.com/hungryMom/hungryMom/web/service/get-tyc";
     public static final String API_AVISO_PRIVACIDAD         = "http://dev.2geeksonemonkey.com/hungryMom/hungryMom/web/service/get-aviso";
-    public static final String API_RECUPERA_ANFITRIONES         = "recupera-anfitriones";
-    public static final String API_GET_DISPONIBILIDAD_ANF         = "get-disponibilidad-anfitrion";
-    public static final String API_COMPRA_MENU         = "compra-menu";
-    public static final String API_LISTA_SOLICITUDES         = "lista-solicitudes";
+    public static final String API_RECUPERA_ANFITRIONES     = "recupera-anfitriones";
+    public static final String API_GET_DISPONIBILIDAD_ANF   = "get-disponibilidad-anfitrion";
+    public static final String API_COMPRA_MENU              = "compra-menu";
+    public static final String API_LISTA_SOLICITUDES        = "lista-solicitudes";
 
 
 

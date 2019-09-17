@@ -205,7 +205,10 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
                 }
                 CompraTO compra = responseMessage.getData();
                 slideUpDialogNotification(responseMessage.getMessage());
-                Intent intent = new Intent(PagoActivity.this, MisComprasActivity.class);
+                Intent intent = new Intent(PagoActivity.this, MainActivity.class);
+                intent.putExtra("SHOW_COMPRAS", true);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
                 startActivity(intent);
             }
         });

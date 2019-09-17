@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import mx.com.dgom.hm.wourmeetz_comensal.adapter.ListPlatillosAdapter;
@@ -23,6 +24,9 @@ import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageResponse;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageResponseInterface;
 
 public class DetalleMenuActivity extends App2GomActivity {
+
+    DecimalFormat df = new DecimalFormat("#,##0.00");
+
     private TextView txtDescripcion;
     private TextView txtHorario;
     private TextView txtPrecio;
@@ -65,7 +69,7 @@ public class DetalleMenuActivity extends App2GomActivity {
     private void setupMenu(){
         txtDescripcion.setText(to.getMenu().getDescripcion());
         txtHorario.setText(to.getHora_inicio() + " - " + to.getHora_fin());
-        txtPrecio.setText("$ " + to.getMonto_venta());
+        txtPrecio.setText("$ " + df.format( to.getMonto_venta()));
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         ArrayList<ListPlatillosTO> array = to.getMenu().getPlatillos();
@@ -84,6 +88,7 @@ public class DetalleMenuActivity extends App2GomActivity {
         intent.putExtra(AppConstantes.MENU, to);
         intent.putExtra(AppConstantes.ANFITRION, anfitrion);
         startActivity(intent);
+        finish();
     }
 
     public void reservar(View view){
@@ -105,6 +110,7 @@ public class DetalleMenuActivity extends App2GomActivity {
                 }
                 CompraTO compra = responseMessage.getData();
                 slideUpDialogNotification(responseMessage.getMessage());
+                finish();
             }
         });
     }

@@ -4,6 +4,8 @@
     <string name="facebook_application_id" translatable="false">500791747157377</string>
     <string name="facebook_login_protcol_scheme" translatable="false">fb500791747157377</string>
 
+    <string name="google_maps_key">AIzaSyDkSJ6n7fvVF4-GiHs2vjP6VOiepGPBi2k</string>
+
     <string name="app_title_login">Ingreso de Comensales</string>
     <string name="btn_login_ingresar">Ingresar</string>
     <string name="btn_login_facebook">Ingresar con Facebook</string>
@@ -121,10 +123,10 @@
     <string name="token">Token</string>
     <string name="datos_tarjeta">Tarjeta</string>
     <string name="card_num_example">XXXX XXXX XXXX XXXX</string>
-    <string name="codigo_seguridad">Código de Seguridad</string>
+    <string name="codigo_seguridad">Código de seguridad</string>
     <string name="fecha_expiracion">Fecha de expiración</string>
     <string name="diagonal">/</string>
-    <string name="realizar_pago">Realizar Pago</string>
+    <string name="realizar_pago">Realizar pago</string>
     <string name="cancelar">Cancelar</string>
     <string name="search">Búsqueda</string>
     <string name="Reservar">Reservar</string>
@@ -134,6 +136,13 @@
     <string name="correo">Correo electrónico</string>
     <string name="abrir">abrir</string>
     <string name="cerrar">cerrar</string>
+    <string name="buscar_direccion">Búscar dirección</string>
+    <string name="ver_anfitrion">Ver anfitrion</string>
+    <string name="detalles_tarjeta">Detalles de la tarjeta</string>
+    <string name="nombre_aparece_tarjeta">Nombre como aparece en la tarjeta</string>
+    <string name="mis_compras">Mis compras</string>
+    <string name="lista_de_anfitriones">Lista de anfitriones</string>
+    <string name="logout">Logout</string>
 
 
 </resources>

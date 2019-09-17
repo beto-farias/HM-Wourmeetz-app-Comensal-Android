@@ -3,6 +3,7 @@ package mx.com.dgom.hm.wourmeetz_comensal.app;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -169,13 +170,15 @@ public class AppController {
 
     //------LISTADO DE ANFITRIONES----
 
-    public void obtenerAnfitriones(Context ctx , String uuid_comensal, String lat, String lon, final MessageListResponseInterface<AnfitrionTO> respInterface){
+    public void obtenerAnfitriones(Context ctx , String uuid_comensal, LatLng inicio, LatLng fin, final MessageListResponseInterface<AnfitrionTO> respInterface){
         String token = AppConstantes.TOKEN;
         try{
             JSONObject data = new JSONObject();
             data.put("uuid_comensal",uuid_comensal );
-            data.put("lat", lat);
-            data.put("lon",lon );
+            data.put("lat_inicio", inicio.latitude);
+            data.put("lon_inicio",inicio.longitude );
+            data.put("lat_fin", fin.latitude);
+            data.put("lon_fin",fin.longitude );
 
             net.jsonObjectRequest(AppConstantes.getAPIURL() + "" + AppConstantes.API_RECUPERA_ANFITRIONES, data, new NetworkResponseInterface() {
 
@@ -189,7 +192,6 @@ public class AppController {
         }catch (JSONException e){
         e.printStackTrace();
         }
-
     }
 
     //------LISTADO DE DISPONIBILIDAD----

@@ -1,5 +1,7 @@
 package mx.com.dgom.hm.wourmeetz_comensal.to;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.Serializable;
 
 public class AnfitrionTO implements Serializable {
@@ -12,6 +14,41 @@ public class AnfitrionTO implements Serializable {
     private String fecha_validacion;
     private int habilitado;
     private int rating;
+    private String direccion;
+    private String lat;
+    private String lon;
+
+
+
+    public LatLng getPosicion(){
+        return new LatLng(Double.parseDouble(lat),Double.parseDouble(lon));
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
+
+
 
 
     public boolean compareNameTo(String str){

@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 import mx.com.dgom.hm.wourmeetz_comensal.adapter.ListAnfitrionesAdapter;
@@ -114,7 +116,7 @@ public class ListAnfitrionesActivity extends App2GomActivity implements AdapterV
 
     public void setupAnfitriones(){
         addCover();
-        controller.obtenerAnfitriones(this, AppConstantes.USER.getUuid(), "0", "0",  new MessageListResponseInterface<AnfitrionTO>() {
+        controller.obtenerAnfitriones(this, AppConstantes.USER.getUuid(), new LatLng(0,0), new LatLng(0,0),  new MessageListResponseInterface<AnfitrionTO>() {
             @Override
             public void response(String noInternetError, MessageResponse errorResponse, ListResponse<AnfitrionTO> responseMessage) {
                 if(!validateResponse(noInternetError, errorResponse)){
