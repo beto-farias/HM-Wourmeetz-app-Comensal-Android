@@ -33,6 +33,7 @@ public class AppConstantes {
     public static final String API_GET_DISPONIBILIDAD_ANF   = "get-disponibilidad-anfitrion";
     public static final String API_COMPRA_MENU              = "compra-menu";
     public static final String API_LISTA_SOLICITUDES        = "lista-solicitudes";
+    public static final String API_CALIFICA_ANFITRION        = "set-calificacion-anfitrion";
 
 
 

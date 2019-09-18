@@ -31,6 +31,7 @@ public class DetalleMenuActivity extends App2GomActivity {
 
     private TextView txtDescripcion;
     private TextView txtHorario;
+    private TextView txtHorarioFin;
     private TextView txtPrecio;
     private Button btnReservar;
     private ListView recyclerView;
@@ -48,6 +49,7 @@ public class DetalleMenuActivity extends App2GomActivity {
         anfitrion = (AnfitrionTO) getIntent().getSerializableExtra(AppConstantes.ANFITRION);
         txtDescripcion = findViewById(R.id.txt_desc);
         txtHorario = findViewById(R.id.txt_hora);
+        txtHorarioFin = findViewById(R.id.txt_hora_fin);
         txtPrecio = findViewById(R.id.txt_precio);
         recyclerView = findViewById(R.id.recyclerView);
         btnReservar = findViewById(R.id.btn_reservar);
@@ -68,8 +70,9 @@ public class DetalleMenuActivity extends App2GomActivity {
 
     private void setupMenu(){
         txtDescripcion.setText(to.getMenu().getDescripcion());
-        txtHorario.setText(to.getHora_inicio() + " - " + to.getHora_fin());
+        txtHorario.setText(to.getHora_inicio());
         txtPrecio.setText("$ " + df.format( to.getMonto_venta()));
+        txtHorarioFin.setText(to.getHora_fin());
         ArrayList<ListPlatillosTO> array = to.getMenu().getPlatillos();
 
         for(int i = 0; i<array.size();i++){

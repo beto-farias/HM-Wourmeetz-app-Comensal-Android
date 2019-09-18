@@ -15,11 +15,21 @@
     </style>
 
     <style name="btnDialogFont">
-        <item name="android:textColor">#000000</item>
+        <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/btn_green</item>
         <item name="android:height">52dp</item>
-        <item name="android:width">320dp</item>
+        <item name="android:width">150dp</item>
+    </style>
+
+    <style name="btnNegativeDialogFont">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/btn_purple</item>
+        <item name="android:height">52dp</item>
+        <item name="android:width">150dp</item>
     </style>
 
     <style name="editTxt" parent="Widget.AppCompat.EditText">
@@ -67,15 +77,22 @@
         <item name="android:textAlignment">textStart</item>
     </style>
 
-    <style name="Theme.Dialog"
-        parent="android:Widget.Material.Light.TimePicker">
+    <style name="Dialog"
+        parent="Theme.AppCompat.Light.Dialog">
 
         <item name="android:colorAccent">@color/colorGreenBtn</item>
         <item name="android:colorPrimary">@color/colorGreenBtn</item>
         <item name="android:colorPrimaryDark">@color/colorGreenBtn</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:buttonStyle">@style/btnDialogFont</item>
-        <item name="android:textColor">@color/colorGreenBtn</item>
-
+        <item name="android:background">@color/colorWhite</item>
+        <item name="buttonBarStyle">@style/Widget.AppCompat.ButtonBar</item>
+        <item name="buttonBarButtonStyle">@style/AppTheme.Button</item>
+        <item name="buttonBarPositiveButtonStyle">@style/btnDialogFont</item>
+        <item name="buttonBarNegativeButtonStyle">@style/btnNegativeDialogFont</item>
+        <item name="buttonBarNeutralButtonStyle">@style/btnDialogFont</item>
+        <item name="windowMinWidthMajor">100%</item>
+        <item name="windowMinWidthMinor">100%</item>
     </style>
 
     <!-- Base application theme. -->
@@ -89,7 +106,6 @@
         <item name="buttonStyle">@style/btnFont</item>
         <item name="editTextStyle">@style/editTxt</item>
         <item name="android:textViewStyle">@style/normalTxtStyle</item>
-        <item name="android:timePickerStyle">@style/Theme.Dialog</item> <!-- TimePicker dialog -->
         <item name="buttonBarStyle">@style/Widget.AppCompat.ButtonBar</item>
         <item name="buttonBarButtonStyle">@style/AppTheme.Button</item>
         <item name="buttonBarPositiveButtonStyle">@style/AppTheme.Button</item>

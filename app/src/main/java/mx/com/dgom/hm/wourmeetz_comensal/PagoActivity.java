@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -46,7 +47,8 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_pago);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_pago);
         Intent intent = getIntent();
         menuActual = (MenuCalendarioTO)intent.getSerializableExtra(AppConstantes.MENU);
         anfitrion = (AnfitrionTO) getIntent().getSerializableExtra(AppConstantes.ANFITRION);
@@ -211,9 +213,9 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
                     @Override
                     public void run() {
                         Intent intent = new Intent(PagoActivity.this, MainActivity.class);
-                        intent.putExtra("SHOW_COMPRAS", true);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
+                        intent.putExtra("SHOW_COMPRAS", true);
+                        onNewIntent(intent);
                         startActivity(intent);
                     }
                 }, TIME_OUT);

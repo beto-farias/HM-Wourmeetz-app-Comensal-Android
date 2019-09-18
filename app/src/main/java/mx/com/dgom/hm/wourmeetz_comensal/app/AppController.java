@@ -14,6 +14,7 @@ import java.lang.reflect.Type;
 
 import mx.com.dgom.hm.wourmeetz_comensal.to.AnfitrionTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.AppVersionTO;
+import mx.com.dgom.hm.wourmeetz_comensal.to.CalificacionTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.CompraTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.DataTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.MenuCalendarioTO;
@@ -281,7 +282,27 @@ public class AppController {
         }
     }
 
+    //---------CALIFICACION ANFITRION
 
+    public void calificar(Context ctx , CalificacionTO to, final MessageResponseInterface respInterface){
+        String token = AppConstantes.TOKEN;
+        try{
+            JSONObject data = new JSONObject(gson.toJson(to));
+
+            net.jsonObjectRequest(AppConstantes.getAPIURL() + "" + AppConstantes.API_CALIFICA_ANFITRION, data, new NetworkResponseInterface() {
+
+                @Override
+                public void networkResponse(String response, String error) {
+                    Type stringType = new TypeToken<MessageResponse>(){}.getType();
+                    processResponse(response,error,respInterface,stringType);
+
+                }
+            }, ctx, null);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+    }
 
 
     /// ---------- METODOS DE UTILIDAD ------------------------------------

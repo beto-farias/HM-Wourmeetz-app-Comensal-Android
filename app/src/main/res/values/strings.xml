@@ -143,6 +143,9 @@
     <string name="mis_compras">Mis compras</string>
     <string name="lista_de_anfitriones">Lista de anfitriones</string>
     <string name="logout">Logout</string>
+    <string name="Notas">Comentario</string>
+    <string name="califica_anfitrion">Califica al anfitrión</string>
+    <string name="califica">Calificar</string>
 
 
 </resources>

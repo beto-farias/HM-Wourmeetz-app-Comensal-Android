@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/titulosListStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/califica_anfitrion" />
+
+    <RatingBar
+        android:id="@+id/califica_anf"
+        style="@style/CustomRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/pading_l"
+        android:layout_marginLeft="@dimen/pading_l"
+        android:numStars="5" />
+
+    <EditText
+        android:id="@+id/txt_notas_anfitrion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pading_l"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="@dimen/pading_s"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_border"
+        android:fontFamily="sans-serif"
+        android:hint="@string/Notas"
+        android:inputType="textPassword" />
+</LinearLayout>

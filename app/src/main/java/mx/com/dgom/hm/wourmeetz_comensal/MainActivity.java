@@ -88,11 +88,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        boolean showMisCompras = getIntent().getBooleanExtra("SHOW_COMPRAS",false);
-
-        if(showMisCompras) {
-            showMisCompras();
-        }
 
         txtAddress = findViewById(R.id.txtAddress);
         txtNombreAnfitrion = findViewById(R.id.txtNombreAnfitrion);
@@ -128,16 +123,15 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         getLocationPermission();
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        showMisCompras();
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        boolean showMisCompras = getIntent().getBooleanExtra("SHOW_COMPRAS",false);
-
-        if(showMisCompras) {
-            showMisCompras();
-        }
     }
 
     @Override
