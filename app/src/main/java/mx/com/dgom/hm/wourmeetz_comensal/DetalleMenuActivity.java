@@ -2,11 +2,13 @@ package mx.com.dgom.hm.wourmeetz_comensal;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -30,9 +32,8 @@ public class DetalleMenuActivity extends App2GomActivity {
     private TextView txtDescripcion;
     private TextView txtHorario;
     private TextView txtPrecio;
-    private EditText cantidad;
     private Button btnReservar;
-    private RecyclerView recyclerView;
+    private ListView recyclerView;
     private MenuCalendarioTO to;
     private AnfitrionTO anfitrion;
     private ListPlatillosAdapter adapter;
@@ -48,7 +49,6 @@ public class DetalleMenuActivity extends App2GomActivity {
         txtDescripcion = findViewById(R.id.txt_desc);
         txtHorario = findViewById(R.id.txt_hora);
         txtPrecio = findViewById(R.id.txt_precio);
-        cantidad = findViewById(R.id.txt_cantidad);
         recyclerView = findViewById(R.id.recyclerView);
         btnReservar = findViewById(R.id.btn_reservar);
 
@@ -70,8 +70,6 @@ public class DetalleMenuActivity extends App2GomActivity {
         txtDescripcion.setText(to.getMenu().getDescripcion());
         txtHorario.setText(to.getHora_inicio() + " - " + to.getHora_fin());
         txtPrecio.setText("$ " + df.format( to.getMonto_venta()));
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
         ArrayList<ListPlatillosTO> array = to.getMenu().getPlatillos();
 
         for(int i = 0; i<array.size();i++){
@@ -93,7 +91,7 @@ public class DetalleMenuActivity extends App2GomActivity {
 
     public void reservar(View view){
         ReservacionTO reservacion = new ReservacionTO();
-        reservacion.setMonto_pago(to.getMonto_venta());
+        reservacion.setMonto_pago(to.getMonto_venta()*100);
         reservacion.setNumero_platos(1);
         reservacion.setPago_electronico(0);
         reservacion.setUuid_anfitrion(anfitrion.getUuid());
@@ -110,7 +108,14 @@ public class DetalleMenuActivity extends App2GomActivity {
                 }
                 CompraTO compra = responseMessage.getData();
                 slideUpDialogNotification(responseMessage.getMessage());
-                finish();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                }, TIME_OUT);
+
             }
         });
     }

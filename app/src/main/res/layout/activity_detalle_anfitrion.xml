@@ -45,9 +45,21 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="@dimen/pading_s"
-                android:paddingStart="@dimen/pading_s"
+                android:paddingStart="@dimen/pading_l"
                 android:paddingEnd="@dimen/pading_s"
                 android:text="TextView" />
+
+            <RatingBar
+                android:id="@+id/rating_anf"
+                style="@style/CustomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/pading_l"
+                android:layout_marginLeft="@dimen/pading_l"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:isIndicator="true"
+                android:numStars="5" />
 
             <TextView
                 android:id="@+id/textView3"

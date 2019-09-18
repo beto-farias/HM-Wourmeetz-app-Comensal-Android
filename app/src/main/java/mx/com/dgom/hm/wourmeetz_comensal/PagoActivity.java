@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -205,11 +206,18 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
                 }
                 CompraTO compra = responseMessage.getData();
                 slideUpDialogNotification(responseMessage.getMessage());
-                Intent intent = new Intent(PagoActivity.this, MainActivity.class);
-                intent.putExtra("SHOW_COMPRAS", true);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-                startActivity(intent);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(PagoActivity.this, MainActivity.class);
+                        intent.putExtra("SHOW_COMPRAS", true);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+                        startActivity(intent);
+                    }
+                }, TIME_OUT);
+
             }
         });
 

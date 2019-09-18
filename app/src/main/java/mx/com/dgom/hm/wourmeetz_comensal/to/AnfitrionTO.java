@@ -51,25 +51,44 @@ public class AnfitrionTO implements Serializable {
 
 
 
-    public boolean compareNameTo(String str){
+    public boolean hasText(String str){
+
+        String[]data =  str.toLowerCase().trim().split(" ");
 
         String nombre = getNombre_empresa().toLowerCase().trim();
-
-        return nombre.contains(str.toLowerCase().trim());
-    }
-
-    public boolean compareDescTo(String str){
-
         String desc = getDescripcion().toLowerCase().trim();
+        String descCorta = getDescripcion_corta().toLowerCase().trim();
 
-        return desc.contains(str.toLowerCase().trim());
+        for (String txt:data) {
+
+            if (nombre.contains(txt)) {
+                return true;
+            }
+
+            if (desc.contains(txt)) {
+                return true;
+            }
+
+            if (descCorta.contains(txt)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    public boolean compareDescCortaTo(String str){
 
-        String desc = getDescripcion_corta().toLowerCase().trim();
 
-        return desc.contains(str.toLowerCase().trim());
+
+    public boolean equals(Object o){
+        if(!(o instanceof AnfitrionTO))
+            return false;
+
+        AnfitrionTO to = (AnfitrionTO)o;
+        if(to.getUuid().equals(getUuid())){
+            return true;
+        }
+        return false;
     }
     public String getUuid() {
         return uuid;

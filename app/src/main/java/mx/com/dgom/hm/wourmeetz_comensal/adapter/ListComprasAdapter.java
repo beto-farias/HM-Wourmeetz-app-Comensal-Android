@@ -78,7 +78,7 @@ public class ListComprasAdapter extends ArrayAdapter {
         this.datosOrdenados = new ArrayList();
 
         for (int i = 0; i < this.datos.size(); i++) {
-            String horario = ((SolicitudTO) this.datos.get(i)).getFecha_venta();
+            String horario = ((SolicitudTO) this.datos.get(i)).getFecha();
             if (this.datosMap.containsKey(horario)) {
                 ((ArrayList) this.datosMap.get(horario)).add(this.datos.get(i));
             } else {

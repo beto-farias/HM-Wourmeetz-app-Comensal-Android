@@ -194,7 +194,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/pading_m"
                         android:layout_weight="1"
-                        android:background="@drawable/btn_green"
+                        android:background="@drawable/btn_purple"
                         android:onClick="cancelar"
                         android:text="@string/cancelar" />
                 </LinearLayout>

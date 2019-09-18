@@ -15,14 +15,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
+        android:clipToPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_desc"
@@ -31,7 +37,25 @@
             android:padding="@dimen/pading_s"
             android:paddingStart="@dimen/padding_item_start"
             android:paddingEnd="@dimen/padding_item_start"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/titulosStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/precio" />
+
+        <TextView
+            android:id="@+id/txt_precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/pading_s"
+            android:paddingStart="@dimen/padding_item_start"
+            android:text="TextView"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView4"
@@ -55,69 +79,28 @@
             android:layout_height="wrap_content"
             android:text="@string/platillos" />
 
-        <android.widget.LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorOlive"
-            android:orientation="vertical"
-            android:visibility="visible">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:clipChildren="true"
-                android:orientation="horizontal">
-
-            </android.support.v7.widget.RecyclerView>
-        </android.widget.LinearLayout>
-
-        <TextView
-            android:id="@+id/textView9"
-            style="@style/titulosStyle"
+        <mx.com.dgom.hm.wourmeetz_comensal.utils.NonScrollListView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/precio" />
+            android:divider="@color/colorGreenBtn"
+            android:dividerHeight="2dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
 
-        <TextView
-            android:id="@+id/txt_precio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/pading_s"
-            android:paddingStart="@dimen/padding_item_start"
-            android:text="TextView" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="@dimen/pading_s">
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/cantidad"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/txt_cantidad"
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_border"
-                android:ems="10"
-                android:hint="@string/cant_num"
-                android:inputType="textPersonName"
-                android:visibility="gone" />
+            android:padding="@dimen/pading_l">
 
             <Button
                 android:id="@+id/btn_reservar"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_green"
                 android:onClick="reservar"
@@ -125,13 +108,15 @@
 
             <Button
                 android:id="@+id/button9"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_green"
                 android:onClick="comprar"
                 android:text="@string/comprar" />
         </LinearLayout>
     </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

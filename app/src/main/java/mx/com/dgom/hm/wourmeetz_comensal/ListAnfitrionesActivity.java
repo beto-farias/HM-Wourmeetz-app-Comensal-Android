@@ -31,19 +31,13 @@ import mx.com.dgom.hm.wourmeetz_comensal.utils.ListResponse;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageListResponseInterface;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageResponse;
 
-public class ListAnfitrionesActivity extends App2GomActivity implements AdapterView.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener {
-
-    private DrawerLayout drawer;
-    private ActionBarDrawerToggle toggle;
-
+public class ListAnfitrionesActivity extends App2GomActivity implements AdapterView.OnItemClickListener {
 
     ListAnfitrionesAdapter adapter;
     private ArrayList<AnfitrionTO> anfitrionArray;
     private ListView listAnfitriones;
     private EditText txtSearch;
     private ImageView btnUsuario;
-
-
 
 
     @Override
@@ -53,12 +47,6 @@ public class ListAnfitrionesActivity extends App2GomActivity implements AdapterV
 
         btnUsuario = findViewById(R.id.btnUsuario);
 
-        btnUsuario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleDrawer();
-            }
-        });
 
         anfitrionArray = new ArrayList<>();
         listAnfitriones = findViewById(R.id.list_anfitriones);
@@ -69,27 +57,13 @@ public class ListAnfitrionesActivity extends App2GomActivity implements AdapterV
         listAnfitriones.setOnItemClickListener(this);
 
 
-        drawer = findViewById(R.id.drawer);
-        toggle = new ActionBarDrawerToggle(this,drawer,R.string.abrir,R.string.cerrar);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        NavigationView navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(this);
         setUpSearch();
         inicializarMenu();
         setupAnfitriones();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(toggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
-    public void inicializarMenu(){
+    public void inicializarMenu() {
         inicializarMenu(getResources().getString(R.string.anfitriones), View.INVISIBLE, null);
     }
 
@@ -102,24 +76,23 @@ public class ListAnfitrionesActivity extends App2GomActivity implements AdapterV
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                adapter.filter(txtSearch.getText().toString().toLowerCase());
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                adapter.filter(txtSearch.getText().toString().toLowerCase());
 
             }
         });
         this.txtSearch.clearFocus();
     }
 
-    public void setupAnfitriones(){
+    public void setupAnfitriones() {
         addCover();
-        controller.obtenerAnfitriones(this, AppConstantes.USER.getUuid(), new LatLng(0,0), new LatLng(0,0),  new MessageListResponseInterface<AnfitrionTO>() {
+        controller.obtenerAnfitriones(this, AppConstantes.USER.getUuid(), new LatLng(0, 0), new LatLng(0, 0), new MessageListResponseInterface<AnfitrionTO>() {
             @Override
             public void response(String noInternetError, MessageResponse errorResponse, ListResponse<AnfitrionTO> responseMessage) {
-                if(!validateResponse(noInternetError, errorResponse)){
+                if (!validateResponse(noInternetError, errorResponse)) {
                     return;
                 }
                 anfitrionArray = responseMessage.getResults();
@@ -137,31 +110,4 @@ public class ListAnfitrionesActivity extends App2GomActivity implements AdapterV
         startActivity(intent);
     }
 
-    //Funciones
-
-    private void toggleDrawer(){
-        if(drawer.isDrawerOpen(GravityCompat.START)){
-            closeDrawer();
-        }else{
-            openDrawer();
-        }
-    }
-
-    private void openDrawer(){
-        drawer.openDrawer(Gravity.LEFT);
-    }
-
-    private void closeDrawer(){
-        drawer.closeDrawer(Gravity.LEFT);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        int id = menuItem.getItemId();
-        if(id == R.id.menu_logout){
-            Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show();
-            closeDrawer();
-        }
-        return false;
-    }
 }

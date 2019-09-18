@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import mx.com.dgom.hm.wourmeetz_comensal.R;
 import mx.com.dgom.hm.wourmeetz_comensal.app.AppConstantes;
 import mx.com.dgom.hm.wourmeetz_comensal.to.PlatilloTO;
 
-public class ListPlatillosAdapter extends RecyclerView.Adapter<ListPlatillosAdapter.ViewHolder>{
+public class ListPlatillosAdapter extends ArrayAdapter {
 
     private static final String TAG = "ListPlatillosRecyclerVA";
 
@@ -27,60 +28,43 @@ public class ListPlatillosAdapter extends RecyclerView.Adapter<ListPlatillosAdap
     private Context context;
     private int idMenu;
 
-    private boolean canBeSelected;
 
-    public ListPlatillosAdapter(Context context, ArrayList<PlatilloTO> platillos){
+    public ListPlatillosAdapter(Context context, ArrayList<PlatilloTO> platillos) {
+        super(context, R.layout.platillo_cardview, platillos);
         this.platillos = platillos;
-        this.context= context;
+        this.context = context;
         this.idMenu = idMenu;
-        this.canBeSelected = canBeSelected;
     }
 
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.platillo_cardview, viewGroup, false);
-        return new ViewHolder(view);
-    }
     public void setDatos(ArrayList<PlatilloTO> arrayList) {
         this.platillos = arrayList;
         notifyDataSetChanged();
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final  int i) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
+
+        view = View.inflate(this.context, R.layout.platillo_cardview, null);
 
         String url = AppConstantes.API_URL_IMAGES + "" + platillos.get(i).getUrl();
         Log.d(TAG, url);
-        Glide.with(context).asBitmap().load(url).into(viewHolder.imageView);
+        ImageView imageView = view.findViewById(R.id.image_platillo);
+        Glide.with(context).asBitmap().load(url).into(imageView);
 
-        viewHolder.name.setText(platillos.get(i).getNombre());
-        viewHolder.uuid = platillos.get(i).getUuid();
+        TextView name = view.findViewById(R.id.nombre_platillo);
+        TextView desc = view.findViewById(R.id.desc);
 
-        viewHolder.layout.setBackgroundColor(context.getResources().getColor(R.color.colorWhite, context.getTheme()));
-        viewHolder.name.setTextColor(context.getResources().getColor(R.color.colorBackGroundGreen, context.getTheme()));
+        name.setText(platillos.get(i).getNombre());
+        desc.setText(platillos.get(i).getDescripcion());
 
+
+        return  view;
     }
 
-
     @Override
-    public int getItemCount() {
+    public int getCount() {
         return platillos.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
-        TextView name;
-        LinearLayout layout;
-        String uuid;
-
-
-        public ViewHolder(View itemView){
-            super(itemView);
-            imageView = itemView.findViewById(R.id.image_platillo);
-            name = itemView.findViewById(R.id.nombre_platillo);
-            layout = itemView.findViewById(R.id.layout_container);
-        }
-    }
 
 }

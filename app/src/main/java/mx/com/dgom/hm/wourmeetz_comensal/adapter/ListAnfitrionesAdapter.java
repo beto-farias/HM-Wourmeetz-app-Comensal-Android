@@ -64,22 +64,28 @@ public class ListAnfitrionesAdapter extends ArrayAdapter {
         this.datos.clear();
 
 
-        if (str.length() == 0) {
+        if (str.isEmpty()) {
             this.datos.addAll(this.searchDatos);
-        } else {
-            for (int i = 0; i < this.searchDatos.size(); i++) {
-                AnfitrionTO anfitrionTO = (AnfitrionTO) this.searchDatos.get(i);
+            notifyDataSetChanged();
+            return;
+        }
 
-                if(anfitrionTO != null){
-                    //Verifica si tiene el nombre
-                    if(anfitrionTO.compareNameTo(str) || anfitrionTO.compareDescCortaTo(str) || anfitrionTO.compareDescTo(str)){
+
+        for (int i = 0; i < this.searchDatos.size(); i++) {
+            AnfitrionTO anfitrionTO = (AnfitrionTO) this.searchDatos.get(i);
+
+            if(anfitrionTO != null){
+                //Verifica si tiene el nombre
+                if(anfitrionTO.hasText(str)){
+                    if(!this.datos.contains(anfitrionTO)) {
                         this.datos.add(anfitrionTO);
                         continue;
                     }
-
                 }
+
             }
         }
+
         notifyDataSetChanged();
     }
 }

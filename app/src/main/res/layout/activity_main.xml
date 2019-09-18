@@ -13,12 +13,13 @@
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
-<fragment
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    />
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="204dp"
+        tools:layout_editor_absoluteY="127dp" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -36,6 +37,8 @@ android:layout_height="match_parent">
         android:id="@+id/layoutDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@color/colorWhite"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,18 +84,20 @@ android:layout_height="match_parent">
             app:layout_constraintTop_toBottomOf="@+id/txtDescripcionAnfitrion" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/button10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/btn_green"
             android:onClick="btnVerAnfitrionAction"
             android:text="@string/ver_anfitrion"
+            android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDireccionAnfitrion" />
+
     </android.support.constraint.ConstraintLayout>
 
     <EditText
@@ -120,7 +125,7 @@ android:layout_height="match_parent">
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:onClick="btnSearchAddressAction"
-        android:src="@android:drawable/ic_search_category_default"
+        android:src="@mipmap/ic_search_map"
         app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -131,7 +136,6 @@ android:layout_height="match_parent">
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/menu_main_activity"
         app:menu="@menu/menu_main"
         android:layout_gravity="start">
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
     private TextView txtDescripcion;
     private TextView txtNumAsientos;
     private TextView txtDescCorta;
+    private RatingBar ratingBar;
 
     private NonScrollListView listMenus;
     private ArrayList<MenuCalendarioTO> menusArrays;
@@ -40,6 +42,7 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
         txtDescCorta = findViewById(R.id.txt_desc_corta);
         txtNumAsientos = findViewById(R.id.txt_num_asientos);
         listMenus = findViewById(R.id.list_menus);
+        ratingBar = findViewById(R.id.rating_anf);
 
         Intent i= getIntent();
 
@@ -69,7 +72,7 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
         txtDescCorta.setText(anfitrion.getDescripcion_corta());
         txtDescripcion.setText(anfitrion.getDescripcion());
         txtNumAsientos.setText("" + anfitrion.getNum_asientos());
-
+        ratingBar.setRating(anfitrion.getRating());
         setupMenus();
     }
 

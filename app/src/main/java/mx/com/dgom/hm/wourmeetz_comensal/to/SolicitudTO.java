@@ -8,6 +8,15 @@ public class SolicitudTO implements Serializable {
     private String menu_nombre;
     private String anfitrion_nombre;
     private int pago_electronico;
+    private String fecha;
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
     public double getMonto_venta() {
         return monto_venta/100;

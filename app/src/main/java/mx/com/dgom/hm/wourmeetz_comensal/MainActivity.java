@@ -25,9 +25,11 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -86,6 +88,12 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        boolean showMisCompras = getIntent().getBooleanExtra("SHOW_COMPRAS",false);
+
+        if(showMisCompras) {
+            showMisCompras();
+        }
+
         txtAddress = findViewById(R.id.txtAddress);
         txtNombreAnfitrion = findViewById(R.id.txtNombreAnfitrion);
         txtDireccionAnfitrion = findViewById(R.id.txtDireccionAnfitrion);
@@ -98,6 +106,18 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         toggle = new ActionBarDrawerToggle(this,drawer,R.string.abrir,R.string.cerrar);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        View headerView = navigationView.inflateHeaderView(R.layout.menu_main_activity);
+
+        TextView txtNombreComensal = headerView.findViewById(R.id.navNombreComensal);
+        ImageView imageViewLogo = headerView.findViewById(R.id.navLogo);
+
+        Glide.with(this).asBitmap().load(R.drawable.logo).into(imageViewLogo);
+
+        txtNombreComensal.setText(AppConstantes.USER.getNombre_completo());
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -348,12 +368,24 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
-        if(id == R.id.menu_logout){
-            Toast.makeText(MainActivity.this,"Logout",Toast.LENGTH_LONG).show();
-            closeDrawer();
+        switch (id) {
+            case R.id.menu_mis_compras:
+                closeDrawer();
+                showMisCompras();
+                return true;
+            case R.id.menu_lista:
+                closeDrawer();
+                showListaAnfitriones();
+                return true;
+            case R.id.menu_logout:
+                closeDrawer();
+                logoutApp();
+                return true;
         }
+        closeDrawer();
         return false;
     }
+
 
     //------------------- PERMISOS ----------------
     private void getLocationPermission() {
