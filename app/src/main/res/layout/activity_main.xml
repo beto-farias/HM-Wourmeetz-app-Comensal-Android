@@ -85,13 +85,14 @@ android:layout_height="match_parent">
 
         <Button
             android:id="@+id/button10"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/btn_green"
             android:onClick="btnVerAnfitrionAction"
+            android:padding="@dimen/pading_l"
             android:text="@string/ver_anfitrion"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"

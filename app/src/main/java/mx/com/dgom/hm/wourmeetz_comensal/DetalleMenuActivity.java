@@ -89,7 +89,6 @@ public class DetalleMenuActivity extends App2GomActivity {
         intent.putExtra(AppConstantes.MENU, to);
         intent.putExtra(AppConstantes.ANFITRION, anfitrion);
         startActivity(intent);
-        finish();
     }
 
     public void reservar(View view){

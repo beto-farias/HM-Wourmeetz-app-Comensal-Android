@@ -47,19 +47,16 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_pago);
         Intent intent = getIntent();
         menuActual = (MenuCalendarioTO)intent.getSerializableExtra(AppConstantes.MENU);
         anfitrion = (AnfitrionTO) getIntent().getSerializableExtra(AppConstantes.ANFITRION);
 
-        inicializarMenu();
 
     }
 
-    public void inicializarMenu(){
-        inicializarMenu(getResources().getString(R.string.realizar_pago), View.INVISIBLE, null);
-    }
+
 
     public void saveCard(final View view) {
 
@@ -207,7 +204,8 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
                     return;
                 }
                 CompraTO compra = responseMessage.getData();
-                slideUpDialogNotification(responseMessage.getMessage());
+
+                showDialog("Pago completado",responseMessage.getMessage());
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

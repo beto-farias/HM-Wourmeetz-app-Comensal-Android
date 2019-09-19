@@ -18,7 +18,8 @@
         <activity
             android:name=".PagoActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/DialogPago"/>
         <activity
             android:name=".DetalleMenuActivity"
             android:screenOrientation="portrait"

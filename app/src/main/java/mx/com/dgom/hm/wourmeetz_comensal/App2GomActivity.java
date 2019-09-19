@@ -120,8 +120,7 @@ public class App2GomActivity extends AppCompatActivity {
         contenedor.addView(txt);
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, (int)getApplicationContext().getResources().getDimension(R.dimen.notification_height), Gravity.BOTTOM);
-
-        addContentView(contenedor, params);
+    addContentView(contenedor, params);
 
         TranslateAnimation animate = new TranslateAnimation(
                 XInitial,
@@ -152,6 +151,7 @@ public class App2GomActivity extends AppCompatActivity {
                 contenedor.getHeight());
         animate.setDuration(duration);
         contenedor.startAnimation(animate);
+
         ((ViewGroup) contenedor.getParent()).removeView(contenedor);
 
     }

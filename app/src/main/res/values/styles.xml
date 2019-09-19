@@ -95,6 +95,16 @@
         <item name="windowMinWidthMinor">100%</item>
     </style>
 
+    <style name="DialogPago"
+        parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="buttonBarButtonStyle">@style/AppTheme.Button</item>
+        <item name="buttonBarPositiveButtonStyle">@style/btnDialogFont</item>
+        <item name="buttonBarNegativeButtonStyle">@style/btnNegativeDialogFont</item>
+        <item name="windowMinWidthMajor">100%</item>
+        <item name="windowMinWidthMinor">100%</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
