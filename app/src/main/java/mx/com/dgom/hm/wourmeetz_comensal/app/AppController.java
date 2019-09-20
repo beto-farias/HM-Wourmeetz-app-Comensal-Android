@@ -105,6 +105,7 @@ public class AppController {
         try{
             JSONObject data = new JSONObject();
             data.put("user_name", userName);
+            data.put("correo", userName);
 
             net.jsonObjectRequest(AppConstantes.getAPIURL() + "" + AppConstantes.API_RECOVER_PASSWORD, data, new NetworkResponseInterface() {
 
