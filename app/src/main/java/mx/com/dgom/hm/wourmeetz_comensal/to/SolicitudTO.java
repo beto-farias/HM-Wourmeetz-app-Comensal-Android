@@ -9,6 +9,24 @@ public class SolicitudTO implements Serializable {
     private String anfitrion_nombre;
     private int pago_electronico;
     private String fecha;
+    private String uuid_relacion_menu;
+    private String uuid_anfitrion;
+
+    public String getUuid_relacion_menu() {
+        return uuid_relacion_menu;
+    }
+
+    public void setUuid_relacion_menu(String uuid_relacion_menu) {
+        this.uuid_relacion_menu = uuid_relacion_menu;
+    }
+
+    public String getUuid_anfitrion() {
+        return uuid_anfitrion;
+    }
+
+    public void setUuid_anfitrion(String uuid_anfitrion) {
+        this.uuid_anfitrion = uuid_anfitrion;
+    }
 
     public String getFecha() {
         return fecha;

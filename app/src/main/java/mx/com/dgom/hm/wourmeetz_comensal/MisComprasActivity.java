@@ -81,9 +81,8 @@ public class MisComprasActivity extends App2GomActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 CalificacionTO to = new CalificacionTO();
                                 to.setUuid_comensal(AppConstantes.USER.getUuid());
-                                //TODO poner uuid del anfitrion / menu.
-                                to.setUuid_anfitrion(solicitud.getAnfitrion_nombre());
-                                to.setUuid_menu_calendario_comensal("");
+                                to.setUuid_anfitrion(solicitud.getUuid_anfitrion());
+                                to.setUuid_menu_calendario_comensal(solicitud.getUuid_relacion_menu());
                                 RatingBar rating = v.findViewById(R.id.califica_anf);
                                 TextView comentarios = v.findViewById(R.id.txt_notas_anfitrion);
                                 to.setComentarios(comentarios.getText().toString());

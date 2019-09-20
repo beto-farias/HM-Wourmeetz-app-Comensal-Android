@@ -56,7 +56,7 @@ public class ListAnfitrionesAdapter extends ArrayAdapter {
     }
 
     /**
-     * Filtrado de la lista de clientes
+     * Filtrado de la lista de anfitriones
      * @param str
      */
     public void filter(String str) {
