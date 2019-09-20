@@ -30,6 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -42,6 +44,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -82,6 +86,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
     private boolean mLocationPermissionGranted;
     private final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 100;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,6 +199,18 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     //------------------ FUNCIONES ----------------------------
 
     private void logoutApp(){
+
+        if (AccessToken.getCurrentAccessToken() != null && com.facebook.Profile.getCurrentProfile() != null){
+            LoginManager.getInstance().logOut();
+        }
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if(user != null){
+            FirebaseAuth.getInstance().signOut(); //signout firebase
+        }
+
         finish();
     }
 

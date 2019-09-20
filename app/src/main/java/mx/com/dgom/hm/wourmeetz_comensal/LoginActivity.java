@@ -88,17 +88,11 @@ public class LoginActivity extends App2GomLoginActivity {
             @Override
             public void onCancel() {
                 Log.d(TAG, "facebook:onCancel");
-                // [START_EXCLUDE]
-                //updateUI(null);
-                // [END_EXCLUDE]
             }
 
             @Override
             public void onError(FacebookException error) {
                 Log.d(TAG, "facebook:onError", error);
-                // [START_EXCLUDE]
-                //updateUI(null);
-                // [END_EXCLUDE]
             }
         });
 
