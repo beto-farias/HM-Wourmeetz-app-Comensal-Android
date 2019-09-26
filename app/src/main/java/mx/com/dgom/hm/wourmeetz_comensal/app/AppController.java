@@ -198,12 +198,18 @@ public class AppController {
 
     //------LISTADO DE DISPONIBILIDAD----
 
-    public void obtenerMenus(Context ctx , String uuid_anfitrion,  final MessageListResponseInterface<MenuCalendarioTO> respInterface){
+    public void obtenerMenus(Context ctx , String uuid_anfitrion,boolean bExperiencia,  final MessageListResponseInterface<MenuCalendarioTO> respInterface){
         String token = AppConstantes.TOKEN;
         try{
             JSONObject data = new JSONObject();
             data.put("uuid_comensal",AppConstantes.USER.getUuid() );
             data.put("uuid_anfitrion", uuid_anfitrion);
+            if(bExperiencia){
+                data.put("es_experiencia", 1);
+            }else{
+                data.put("es_experiencia", 0);
+            }
+
 
             net.jsonObjectRequest(AppConstantes.getAPIURL() + "" + AppConstantes.API_GET_DISPONIBILIDAD_ANF, data, new NetworkResponseInterface() {
 

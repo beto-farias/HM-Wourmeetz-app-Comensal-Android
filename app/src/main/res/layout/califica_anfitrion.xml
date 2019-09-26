@@ -29,6 +29,5 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_border"
         android:fontFamily="sans-serif"
-        android:hint="@string/Notas"
-        android:inputType="textPassword" />
+        android:hint="@string/Notas"/>
 </LinearLayout>

@@ -2,6 +2,8 @@ package mx.com.dgom.hm.wourmeetz_comensal;
 
 import android.content.Intent;
 import android.opengl.Visibility;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,9 +15,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import mx.com.dgom.hm.wourmeetz_comensal.adapter.ListMenusCalendariosAdapter;
+import mx.com.dgom.hm.wourmeetz_comensal.adapter.PageAdapter;
 import mx.com.dgom.hm.wourmeetz_comensal.app.AppConstantes;
 import mx.com.dgom.hm.wourmeetz_comensal.to.AnfitrionTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.MenuCalendarioTO;
+import mx.com.dgom.hm.wourmeetz_comensal.utils.CustomViewPager;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.ListResponse;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageListResponseInterface;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageResponse;
@@ -27,11 +31,15 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
     private TextView txtDescCorta;
     private RatingBar ratingBar;
 
-    private NonScrollListView listMenus;
-    private ArrayList<MenuCalendarioTO> menusArrays;
-    private ListMenusCalendariosAdapter adapter;
+    private PageAdapter pageAdapter;
+    private CustomViewPager container;
+    private TabLayout tabs;
 
-    private AnfitrionTO anfitrion;
+    /*private NonScrollListView listMenus;
+    private ArrayList<MenuCalendarioTO> menusArrays;
+    private ListMenusCalendariosAdapter adapter;*/
+
+    public AnfitrionTO anfitrion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +49,13 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
         txtDescripcion = findViewById(R.id.txt_desc_completa);
         txtDescCorta = findViewById(R.id.txt_desc_corta);
         txtNumAsientos = findViewById(R.id.txt_num_asientos);
-        listMenus = findViewById(R.id.list_menus);
+       // listMenus = findViewById(R.id.list_menus);
         ratingBar = findViewById(R.id.rating_anf);
 
         Intent i= getIntent();
 
         anfitrion =(AnfitrionTO) i.getSerializableExtra(AppConstantes.ANFITRION);
-        menusArrays = new ArrayList<>();
+      /*  menusArrays = new ArrayList<>();
         adapter = new ListMenusCalendariosAdapter(this, menusArrays);
         listMenus.setAdapter(adapter);
 
@@ -60,12 +68,28 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
+
+        container = findViewById(R.id.container);
+        tabs = findViewById(R.id.tabLayout);
+        pageAdapter = new PageAdapter(getSupportFragmentManager());
+
+
+        setupViewPager(container);
+
+        tabs.setupWithViewPager(container);
 
         inicializarMenu(anfitrion.getNombre_empresa(), View.INVISIBLE , null);
         setupAnfitrion();
 
+    }
+
+    private void setupViewPager(ViewPager pager){
+        pageAdapter.addFragment(new MenusFragment(), "Menus");
+        pageAdapter.addFragment(new ExperienciasFragment(), "Experiencias");
+
+        pager.setAdapter(pageAdapter);
     }
 
     private void setupAnfitrion(){
@@ -73,13 +97,13 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
         txtDescripcion.setText(anfitrion.getDescripcion());
         txtNumAsientos.setText("" + anfitrion.getNum_asientos());
         ratingBar.setRating(anfitrion.getRating());
-        setupMenus();
+      //  setupMenus();
     }
 
-    private void setupMenus(){
+ /*   private void setupMenus(){
         addCover();
 
-        controller.obtenerMenus(this, anfitrion.getUuid(), new MessageListResponseInterface<MenuCalendarioTO>() {
+        controller.obtenerMenus(this, anfitrion.getUuid(),false, new MessageListResponseInterface<MenuCalendarioTO>() {
             @Override
             public void response(String noInternetError, MessageResponse errorResponse, ListResponse<MenuCalendarioTO> responseMessage) {
                 removeCover();
@@ -93,5 +117,5 @@ public class DetalleAnfitrionActivity extends App2GomActivity {
             }
         });
 
-    }
+    }*/
 }

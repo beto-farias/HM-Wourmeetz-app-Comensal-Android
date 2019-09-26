@@ -7,6 +7,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -19,7 +23,7 @@ public class ListComprasAdapter extends ArrayAdapter {
     private Context context;
     private ArrayList<SolicitudTO> datos;
 
-    private SortedMap<String, ArrayList<Object>> datosMap;
+    private Map<String, ArrayList<Object>> datosMap;
     private ArrayList<Object> datosOrdenados;
 
     public int getCount() {
@@ -74,7 +78,7 @@ public class ListComprasAdapter extends ArrayAdapter {
 
     private void crearMapa() {
 
-        this.datosMap = new TreeMap();
+        this.datosMap = new LinkedHashMap<>();
         this.datosOrdenados = new ArrayList();
 
         for (int i = 0; i < this.datos.size(); i++) {
@@ -94,4 +98,7 @@ public class ListComprasAdapter extends ArrayAdapter {
             this.datosOrdenados.addAll((ArrayList) datosMap.get(horario));
         }
     }
+
+
+
 }

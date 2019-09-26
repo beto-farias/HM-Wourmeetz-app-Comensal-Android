@@ -205,18 +205,11 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
                 }
                 CompraTO compra = responseMessage.getData();
 
-                showDialog("Pago completado",responseMessage.getMessage());
+                showD("Pago completado",responseMessage.getMessage());
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(PagoActivity.this, MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        intent.putExtra("SHOW_COMPRAS", true);
-                        onNewIntent(intent);
-                        startActivity(intent);
-                    }
-                }, TIME_OUT);
+
+
+
 
             }
         });
@@ -230,6 +223,31 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
         builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    public void showD(String  dialog_title, String  mensaje) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(dialog_title);
+        builder.setMessage(mensaje);
+        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                addCover();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        removeCover();
+                        Intent intent = new Intent(PagoActivity.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        intent.putExtra("SHOW_COMPRAS", true);
+                        onNewIntent(intent);
+                        startActivity(intent);
+                    }
+                }, TIME_OUT);
                 dialogInterface.dismiss();
             }
         });
