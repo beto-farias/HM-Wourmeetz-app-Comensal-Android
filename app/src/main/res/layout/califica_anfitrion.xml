@@ -17,7 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/pading_l"
         android:layout_marginLeft="@dimen/pading_l"
-        android:numStars="5" />
+        android:numStars="5"
+        android:stepSize="1" />
 
     <EditText
         android:id="@+id/txt_notas_anfitrion"

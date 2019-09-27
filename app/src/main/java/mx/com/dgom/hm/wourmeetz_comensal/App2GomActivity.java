@@ -38,7 +38,7 @@ public class App2GomActivity extends AppCompatActivity {
     private int coversCount = 0;
     private ProgressDialog pd;
 
-    protected void addCover() {
+    public void addCover() {
         this.coversCount++;
         if (this.pd == null) {
             this.pd = new ProgressDialog(this);
@@ -50,7 +50,7 @@ public class App2GomActivity extends AppCompatActivity {
         }
     }
 
-    protected void removeCover() {
+    public void removeCover() {
         this.coversCount--;
         Log.d(TAG,"Remove cover " + coversCount);
         if (this.coversCount < 0) {

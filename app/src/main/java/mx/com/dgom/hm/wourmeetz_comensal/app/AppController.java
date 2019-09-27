@@ -14,6 +14,7 @@ import java.lang.reflect.Type;
 
 import mx.com.dgom.hm.wourmeetz_comensal.to.AnfitrionTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.AppVersionTO;
+import mx.com.dgom.hm.wourmeetz_comensal.to.CalificacionAsignadaTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.CalificacionTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.CompraTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.DataTO;
@@ -291,7 +292,7 @@ public class AppController {
 
     //---------CALIFICACION ANFITRION
 
-    public void calificar(Context ctx , CalificacionTO to, final MessageResponseInterface respInterface){
+    public void calificar(Context ctx , CalificacionTO to, final MessageResponseInterface<CalificacionAsignadaTO> respInterface){
         String token = AppConstantes.TOKEN;
         try{
             JSONObject data = new JSONObject(gson.toJson(to));
@@ -300,7 +301,7 @@ public class AppController {
 
                 @Override
                 public void networkResponse(String response, String error) {
-                    Type stringType = new TypeToken<MessageResponse>(){}.getType();
+                    Type stringType = new TypeToken<MessageResponse<CalificacionAsignadaTO>>(){}.getType();
                     processResponse(response,error,respInterface,stringType);
 
                 }

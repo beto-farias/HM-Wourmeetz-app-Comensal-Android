@@ -2,7 +2,6 @@ package mx.com.dgom.hm.wourmeetz_comensal;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +14,16 @@ import java.util.ArrayList;
 
 import mx.com.dgom.hm.wourmeetz_comensal.adapter.ListComprasAdapter;
 import mx.com.dgom.hm.wourmeetz_comensal.app.AppConstantes;
+import mx.com.dgom.hm.wourmeetz_comensal.to.CalificacionAsignadaTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.CalificacionTO;
 import mx.com.dgom.hm.wourmeetz_comensal.to.SolicitudTO;
+import mx.com.dgom.hm.wourmeetz_comensal.utils.ComprasInterface;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.ListResponse;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageListResponseInterface;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageResponse;
 import mx.com.dgom.hm.wourmeetz_comensal.utils.MessageResponseInterface;
 
-public class MisComprasActivity extends App2GomActivity {
+public class MisComprasActivity extends App2GomActivity implements ComprasInterface {
     private ListComprasAdapter adapter;
     private ListView listCompras;
     private ArrayList<SolicitudTO> array = new ArrayList<>();
@@ -34,7 +35,7 @@ public class MisComprasActivity extends App2GomActivity {
 
         listCompras = findViewById(R.id.list_compras);
 
-        adapter = new ListComprasAdapter(this, array);
+        adapter = new ListComprasAdapter(this, this, array);
         listCompras.setAdapter(adapter);
 
         setupDatosCompras();
@@ -61,7 +62,7 @@ public class MisComprasActivity extends App2GomActivity {
         });
 
 
-        listCompras.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      /*  listCompras.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -111,8 +112,61 @@ public class MisComprasActivity extends App2GomActivity {
                         });
                AlertDialog dialog = builder.create();
                 dialog.show();
-              //  dialog.getWindow().setLayout(900,900);*/
              }
-        });
+        });*/
     }
+
+
+    public void openDialog(final SolicitudTO solicitud){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MisComprasActivity.this, R.style.Dialog);
+        // Get the layout inflater
+        LayoutInflater inflater = MisComprasActivity.this.getLayoutInflater();
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+
+        final View v= inflater.inflate(R.layout.califica_anfitrion, null);
+        builder.setView(v)
+                // Add action buttons
+                .setPositiveButton(R.string.califica, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        CalificacionTO to = new CalificacionTO();
+                        to.setUuid_comensal(AppConstantes.USER.getUuid());
+                        to.setUuid_anfitrion(solicitud.getUuid_anfitrion());
+                        to.setUuid_menu_calendario_comensal(solicitud.getUuid_relacion_menu());
+                        RatingBar rating = v.findViewById(R.id.califica_anf);
+                        TextView comentarios = v.findViewById(R.id.txt_notas_anfitrion);
+                        to.setComentarios(comentarios.getText().toString());
+                        to.setRating((int)rating.getRating());
+
+                        addCover();
+                        controller.calificar(MisComprasActivity.this, to, new MessageResponseInterface() {
+                            @Override
+                            public void response(String noInternetError, MessageResponse errorResponse, MessageResponse responseMessage) {
+                                removeCover();
+
+                                if(!validateResponse(noInternetError,errorResponse)){
+                                    return;
+                                }
+
+                                CalificacionAsignadaTO to = (CalificacionAsignadaTO)responseMessage.getData();
+                                adapter.actualizarCalificacion(to);
+                                slideUpDialogNotification(responseMessage.getMessage());
+
+
+                            }
+                        });
+
+                    }
+                })
+                .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
 }

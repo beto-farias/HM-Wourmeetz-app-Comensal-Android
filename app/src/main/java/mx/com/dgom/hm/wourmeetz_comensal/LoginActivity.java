@@ -64,8 +64,8 @@ public class LoginActivity extends App2GomLoginActivity {
 
         txtUser = (TextView)findViewById(R.id.txtUsername);
         txtPwd = (TextView) findViewById(R.id.txtPwd);
-        txtUser.setText("notei@hotmail.com");
-        txtPwd.setText("12345678");
+        //txtUser.setText("notei@hotmail.com");
+        //txtPwd.setText("12345678");
 
         txtVersionApp = findViewById(R.id.txtVersionApp);
 

@@ -9,6 +9,7 @@ public class CalificacionTO implements Serializable {
     private double rating;
     private String comentarios;
 
+
     public String getUuid_comensal() {
         return uuid_comensal;
     }

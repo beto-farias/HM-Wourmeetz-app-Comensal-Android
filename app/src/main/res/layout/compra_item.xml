@@ -15,15 +15,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/txt_nombre_anfitrion"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_item_start"
-            android:paddingTop="@dimen/pading_s"
-            android:text="TextView"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/pading_s"
+            android:paddingStart="@dimen/padding_item_start">
+
+            <TextView
+                android:id="@+id/txt_nombre_anfitrion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_calificar"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/pin_marker"
+                android:gravity="center_vertical"
+                android:paddingEnd="16dp"
+                android:text="@string/califica"
+                android:textColor="@color/colorGreenBtn"
+                android:textStyle="bold" />
+
+            <RatingBar
+                android:id="@+id/calificacion"
+                style="@style/CustomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/pading_l"
+                android:layout_marginLeft="@dimen/pading_l"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="1"
+                android:visibility="gone" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

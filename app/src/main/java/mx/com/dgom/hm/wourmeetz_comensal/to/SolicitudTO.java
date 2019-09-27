@@ -11,6 +11,25 @@ public class SolicitudTO implements Serializable {
     private String fecha;
     private String uuid_relacion_menu;
     private String uuid_anfitrion;
+    private int calificado;
+    private double calificacion;
+
+
+    public int getCalificado() {
+        return calificado;
+    }
+
+    public void setCalificado(int calificado) {
+        this.calificado = calificado;
+    }
+
+    public double getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(double calificacion) {
+        this.calificacion = calificacion;
+    }
 
     public String getUuid_relacion_menu() {
         return uuid_relacion_menu;
