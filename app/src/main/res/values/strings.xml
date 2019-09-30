@@ -18,7 +18,7 @@
     <string name="user_name_confirm">Confirmar correo electrónico</string>
     <string name="password">Contraseña</string>
     <string name="password_confirm">Confirmar contraseña</string>
-    <string name="crear_cuenta">Quiero crear una cuenta a partir de mi correo electrónico</string>
+    <string name="crear_cuenta">Registrarme</string>
     <string name="registrar">Registrarme</string>
     <string name="estoy_registrado">Ya estoy registrado</string>
     <string name="olvido_contraseña">Olvide mi contraseña</string>
@@ -89,7 +89,6 @@
 
     <string-array name="year_array">
         <item>Año</item>
-        <item>18</item>
         <item>19</item>
         <item>20</item>
         <item>21</item>

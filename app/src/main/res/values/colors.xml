@@ -12,4 +12,5 @@
     <color name="colorPurple">#510C76</color>
     <color name="colorOlive">#DAECD9</color>
     <color name="shadow">#CABBBBBB</color>
+    <color name="colorGreenTrans">#7D7CC34F</color>
 </resources>

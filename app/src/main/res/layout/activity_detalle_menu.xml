@@ -36,6 +36,7 @@
 
             <TextView
                 android:id="@+id/txt_desc"
+                style="@style/tituloCeldaStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -70,6 +71,7 @@
 
             <TextView
                 android:id="@+id/txt_hora"
+                style="@style/tituloCeldaStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -88,6 +90,7 @@
 
             <TextView
                 android:id="@+id/txt_hora_fin"
+                style="@style/tituloCeldaStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -117,6 +120,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="true"
             android:divider="@color/colorGreenBtn"
             android:dividerHeight="2dp"
             android:focusable="false"

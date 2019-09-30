@@ -199,7 +199,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     //------------------ FUNCIONES ----------------------------
 
     private void logoutApp(){
-
         if (AccessToken.getCurrentAccessToken() != null && com.facebook.Profile.getCurrentProfile() != null){
             LoginManager.getInstance().logOut();
         }

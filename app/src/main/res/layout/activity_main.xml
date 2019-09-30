@@ -26,9 +26,10 @@ android:layout_height="match_parent">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
+        android:layout_marginTop="14dp"
+        android:background="@color/colorWhite"
         android:onClick="btnSideBarAction"
+        android:scaleType="center"
         android:src="@drawable/ic_nav_menu"
         app:layout_constraintStart_toStartOf="@+id/map"
         app:layout_constraintTop_toTopOf="@+id/map" />
@@ -38,15 +39,17 @@ android:layout_height="match_parent">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/colorWhite"
-        android:visibility="gone"
+        android:background="@drawable/rounded_border"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/txtAddress">
 
         <TextView
             android:id="@+id/txtNombreAnfitrion"
+            style="@style/textBoldStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -61,6 +64,7 @@ android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/txtDescripcionAnfitrion"
+            style="@style/textRegularStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -73,6 +77,7 @@ android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/txtDireccionAnfitrion"
+            style="@style/textRegularStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -103,32 +108,33 @@ android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/txtAddress"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/map_search_width"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        android:background="@color/colorWhite"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_border"
         android:ems="10"
         android:hint="@string/buscar_direccion"
         android:inputType="textPostalAddress"
         android:paddingLeft="@dimen/pading_m"
         android:paddingRight="@dimen/pading_m"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/map" />
 
     <ImageButton
         android:id="@+id/imageButton3"
         style="@android:style/Widget.DeviceDefault.ImageButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorBlueBtn"
         android:onClick="btnSearchAddressAction"
-        android:src="@mipmap/ic_search_map"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:src="@drawable/search_lupa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtAddress"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

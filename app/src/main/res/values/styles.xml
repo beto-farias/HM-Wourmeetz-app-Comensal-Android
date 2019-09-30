@@ -8,7 +8,8 @@
 
     <style name="btnFont">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_black</item>
         <item name="android:textAlignment">center</item>
         <item name="android:height">52dp</item>
         <item name="android:width">320dp</item>
@@ -16,7 +17,8 @@
 
     <style name="btnDialogFont">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_black</item>
         <item name="android:textAlignment">center</item>
         <item name="android:background">@drawable/btn_green</item>
         <item name="android:height">52dp</item>
@@ -25,37 +27,59 @@
 
     <style name="btnNegativeDialogFont">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_black</item>
         <item name="android:background">@drawable/btn_purple</item>
         <item name="android:height">52dp</item>
         <item name="android:width">150dp</item>
     </style>
 
+    <style name="btnDialoLogOut">
+        <item name="android:textColor">@color/colorGreenBtn</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_black</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:height">52dp</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:width">150dp</item>
+    </style>
+
+    <style name="btnNegativeDialogLogOut">
+        <item name="android:textColor">@color/colorPurple</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_black</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:height">52dp</item>
+        <item name="android:width">150dp</item>
+    </style>
+
     <style name="editTxt" parent="Widget.AppCompat.EditText">
-        <item name="android:textColor">#000000</item>
+        <item name="android:textColor">@color/colorGreenBtn</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textAlignment">textStart</item>
-        <item name="android:height">52dp</item>
+        <item name="android:height">60dp</item>
         <item name="android:padding">10dp</item>
         <item name="android:width">320dp</item>
+        <item name="android:textColorHint">@color/colorGreenBtn</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_light</item>
     </style>
 
     <style name="titleStyle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">textStart</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_bold</item>
     </style>
-
     <style name="titulosStyle">
         <item name="android:textSize">18sp</item>
-        <item name="android:textAlignment">textStart</item>
-        <item name="android:padding">6dp</item>
-        <item name="android:gravity">bottom</item>
-        <item name="android:paddingStart">16dp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_bold</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:gravity">bottom|start</item>
+        <item name="android:paddingStart">6dp</item>
         <item name="android:background">@color/colorOlive</item>
         <item name="android:height">@dimen/titulos_height</item>
     </style>
+
 
     <style name="titulosListStyle">
         <item name="android:textSize">18sp</item>
@@ -63,6 +87,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:textAlignment">textStart</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_bold</item>
         <item name="android:padding">6dp</item>
         <item name="android:background">@color/colorBackGroundGreen</item>
     </style>
@@ -75,6 +100,40 @@
     <style name="normalTxtStyle">
         <item name="android:textSize">15sp</item>
         <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="tituloCeldaStyle">
+        <item name="android:textColor">@color/colorGreenBtn</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_bold</item>
+        <item name="android:paddingStart">@dimen/pading_l</item>
+        <item name="android:paddingTop">@dimen/pading_l</item>
+    </style>
+
+
+    <style name="subtituloCeldaStyle">
+        <item name="android:textColorHint">@color/colorGreenBtn</item>
+        <item name="android:textColor">@color/colorGreenBtn</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_regular</item>
+        <item name="android:height">50dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/pading_l</item>
+    </style>
+
+
+    <style name="textBoldStyle">
+        <item name="android:textColor">@color/colorGreenBtn</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_bold</item>
+        <item name="android:paddingStart">@dimen/pading_l</item>
+    </style>
+
+    <style name="textRegularStyle">
+        <item name="android:textColor">@color/colorGreenBtn</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/mplusrounded1c_regular</item>
+        <item name="android:paddingStart">@dimen/pading_l</item>
     </style>
 
     <style name="Dialog"
@@ -93,6 +152,18 @@
         <item name="buttonBarNeutralButtonStyle">@style/btnDialogFont</item>
         <item name="windowMinWidthMajor">100%</item>
         <item name="windowMinWidthMinor">100%</item>
+    </style>
+
+    <style name="DialogLogOut"
+        parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:fontFamily">@font/mplusrounded1c_bold</item>
+        <item name="android:textColorPrimary">@color/colorGreenBtn</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:buttonBarStyle">@style/btnDialoLogOut</item>
+        <item name="buttonBarPositiveButtonStyle">@style/btnDialoLogOut</item>
+        <item name="buttonBarNegativeButtonStyle">@style/btnNegativeDialogLogOut</item>
+        <item name="windowMinWidthMajor">50%</item>
+        <item name="windowMinWidthMinor">50%</item>
     </style>
 
     <style name="DialogPago"

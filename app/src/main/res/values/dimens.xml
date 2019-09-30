@@ -43,4 +43,6 @@
     <dimen name="space_s">8dp</dimen>
     <dimen name="space_l">16dp</dimen>
     <dimen name="margin_l">32dp</dimen>
+    <dimen name="editText_height">55dp</dimen>
+    <dimen name="map_search_width">270dp</dimen>
 </resources>
