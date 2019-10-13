@@ -23,11 +23,13 @@
 
         <TextView
             android:id="@+id/txt_title_menu"
-            style="@style/tituloCeldaStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="5"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeStepGranularity="2sp"
             android:autoSizeTextType="uniform"
             android:maxHeight="50dp"
             android:paddingLeft="@dimen/pading_m"
@@ -46,7 +48,7 @@
             android:background="@color/colorWhite"
             android:scaleType="centerInside"
             android:src="@drawable/add"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
     </LinearLayout>
 

@@ -184,15 +184,15 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
         to.setNumero_platos(1);
         to.setPago_electronico(1);
         to.setUuid_anfitrion(anfitrion.getUuid());
-        to.setUuid_comensal(AppConstantes.USER.getUuid());
+        to.setUuid_comensal(AppConstantes.getUser(getApplicationContext()).getUuid());
         to.setMonto_pago(menuActual.getMonto_venta() * 100);
         to.setUuid_calendario_menu(menuActual.getUuid());
         TarjetaTO tarjeta = new TarjetaTO();
         tarjeta.setToken_id(token.getId());
         tarjeta.setName(((Card)token.getCard()).getHolderName());
         tarjeta.setLast_name(((Card)token.getCard()).getHolderName());
-        tarjeta.setPhone_number(AppConstantes.USER.getTelefono());
-        tarjeta.setEmail(AppConstantes.USER.getCorreo());
+        tarjeta.setPhone_number(AppConstantes.getUser(getApplicationContext()).getTelefono());
+        tarjeta.setEmail(AppConstantes.getUser(getApplicationContext()).getCorreo());
         tarjeta.setDevice_session_id(getDeviceId());
         to.setDatos_tarjeta_op(tarjeta);
 
@@ -251,6 +251,7 @@ public class PagoActivity extends App2GomActivity implements OperationCallBack {
                 dialogInterface.dismiss();
             }
         });
+        builder.setCancelable(false);
         builder.create().show();
     }
 

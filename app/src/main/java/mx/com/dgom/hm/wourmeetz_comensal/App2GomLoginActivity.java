@@ -34,8 +34,8 @@ public class App2GomLoginActivity extends App2GomActivity {
                 UserTO user = (UserTO) to.getUsuario();
 
 
-                AppConstantes.USER = user;
-                AppConstantes.TOKEN = to.getToken();
+                AppConstantes.setUser(user, getApplicationContext());
+                AppConstantes.setToken(to.getToken(), getApplicationContext());
 
 
                 Intent intent;
@@ -73,8 +73,8 @@ public class App2GomLoginActivity extends App2GomActivity {
                 UserTO user = (UserTO) to.getUsuario();
 
 
-                AppConstantes.USER = user;
-                AppConstantes.TOKEN = to.getToken();
+                AppConstantes.setUser(user, getApplicationContext());
+                AppConstantes.setToken(to.getToken(), getApplicationContext());
 
 
                 Intent intent;

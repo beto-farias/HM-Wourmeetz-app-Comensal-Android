@@ -89,7 +89,7 @@ public class ListAnfitrionesActivity extends App2GomActivity implements AdapterV
 
     public void setupAnfitriones() {
         addCover();
-        controller.obtenerAnfitriones(this, AppConstantes.USER.getUuid(), new LatLng(0, 0), new LatLng(0, 0), new MessageListResponseInterface<AnfitrionTO>() {
+        controller.obtenerAnfitriones(this, new LatLng(0, 0), new LatLng(0, 0), new MessageListResponseInterface<AnfitrionTO>() {
             @Override
             public void response(String noInternetError, MessageResponse errorResponse, ListResponse<AnfitrionTO> responseMessage) {
                 if (!validateResponse(noInternetError, errorResponse)) {

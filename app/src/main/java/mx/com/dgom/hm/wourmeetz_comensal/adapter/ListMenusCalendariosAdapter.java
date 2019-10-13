@@ -60,7 +60,7 @@ public class ListMenusCalendariosAdapter extends ArrayAdapter {
             TextView txtDesc = (TextView) view.findViewById(R.id.txt_desc);
 
             txtNombreMenu.setText(menuTO.getMenu().getNombre());
-            txtHorario.setText(menuTO.getHora_inicio() + " - " + menuTO.getHora_fin());
+            txtHorario.setText(menuTO.getHora_inicio().substring(0,5) + " - " + menuTO.getHora_fin().substring(0,5));
             txtDesc.setText(menuTO.getMenu().getDescripcion());
             txtCosto.setText("$ " + df.format( menuTO.getMonto_venta()));
 

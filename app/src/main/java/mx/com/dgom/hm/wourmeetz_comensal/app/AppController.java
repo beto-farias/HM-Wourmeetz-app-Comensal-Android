@@ -142,7 +142,7 @@ public class AppController {
     }
 
     public void obtenerTyC(Context ctx , final MessageResponseInterface<TerminosCondicionesTO>  respInterface){
-        String token = AppConstantes.TOKEN;
+        String token = AppConstantes.getToken(ctx);
         JSONObject data = new JSONObject();
 
         net.jsonObjectRequest(AppConstantes.API_TYC, data, new NetworkResponseInterface() {
@@ -158,7 +158,7 @@ public class AppController {
         }
 
     public void obtenerAvisoPrivacidad(Context ctx , final MessageResponseInterface<TerminosCondicionesTO>  respInterface){
-        String token = AppConstantes.TOKEN;
+        String token = AppConstantes.getToken(ctx);
         JSONObject data = new JSONObject();
         net.jsonObjectRequest(AppConstantes.API_AVISO_PRIVACIDAD, data, new NetworkResponseInterface() {
 
@@ -173,11 +173,11 @@ public class AppController {
 
     //------LISTADO DE ANFITRIONES----
 
-    public void obtenerAnfitriones(Context ctx , String uuid_comensal, LatLng inicio, LatLng fin, final MessageListResponseInterface<AnfitrionTO> respInterface){
-        String token = AppConstantes.TOKEN;
+    public void obtenerAnfitriones(Context ctx , LatLng inicio, LatLng fin, final MessageListResponseInterface<AnfitrionTO> respInterface){
+        String token = AppConstantes.getToken(ctx);
         try{
             JSONObject data = new JSONObject();
-            data.put("uuid_comensal",uuid_comensal );
+            data.put("uuid_comensal",AppConstantes.getUser(ctx).getUuid() );
             data.put("lat_inicio", inicio.latitude);
             data.put("lon_inicio",inicio.longitude );
             data.put("lat_fin", fin.latitude);
@@ -200,10 +200,10 @@ public class AppController {
     //------LISTADO DE DISPONIBILIDAD----
 
     public void obtenerMenus(Context ctx , String uuid_anfitrion,boolean bExperiencia,  final MessageListResponseInterface<MenuCalendarioTO> respInterface){
-        String token = AppConstantes.TOKEN;
+        String token = AppConstantes.getToken(ctx);
         try{
             JSONObject data = new JSONObject();
-            data.put("uuid_comensal",AppConstantes.USER.getUuid() );
+            data.put("uuid_comensal",AppConstantes.getUser(ctx).getUuid());
             data.put("uuid_anfitrion", uuid_anfitrion);
             if(bExperiencia){
                 data.put("es_experiencia", 1);
@@ -230,7 +230,7 @@ public class AppController {
     //---------PAGOS-----------
 
     public void pagarOpenPay(Context ctx , PagoOpenPayTO to, final MessageResponseInterface<CompraTO> respInterface){
-        String token = AppConstantes.TOKEN;
+        String token = AppConstantes.getToken(ctx);
         try{
             JSONObject data = new JSONObject(gson.toJson(to));
 
@@ -250,7 +250,7 @@ public class AppController {
     }
 
     public void reservar(Context ctx , ReservacionTO to, final MessageResponseInterface<CompraTO> respInterface){
-        String token = AppConstantes.TOKEN;
+        String token = AppConstantes.getToken(ctx);
         try{
             JSONObject data = new JSONObject(gson.toJson(to));
 
@@ -271,10 +271,10 @@ public class AppController {
 
     //------Mi Compras---------------
     public void obtenerCompras(Context ctx ,final MessageListResponseInterface<SolicitudTO> respInterface){
-        String token = AppConstantes.TOKEN;
+        String token = AppConstantes.getToken(ctx);
         try{
             JSONObject data = new JSONObject();
-            data.put("uuid_comensal",AppConstantes.USER.getUuid() );
+            data.put("uuid_comensal",AppConstantes.getUser(ctx).getUuid() );
 
             net.jsonObjectRequest(AppConstantes.getAPIURL() + "" + AppConstantes.API_LISTA_SOLICITUDES, data, new NetworkResponseInterface() {
 
@@ -293,7 +293,7 @@ public class AppController {
     //---------CALIFICACION ANFITRION
 
     public void calificar(Context ctx , CalificacionTO to, final MessageResponseInterface<CalificacionAsignadaTO> respInterface){
-        String token = AppConstantes.TOKEN;
+        String token = AppConstantes.getToken(ctx);
         try{
             JSONObject data = new JSONObject(gson.toJson(to));
 

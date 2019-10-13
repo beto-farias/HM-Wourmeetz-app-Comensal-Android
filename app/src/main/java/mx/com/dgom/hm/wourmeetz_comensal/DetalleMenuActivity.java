@@ -70,9 +70,9 @@ public class DetalleMenuActivity extends App2GomActivity {
 
     private void setupMenu(){
         txtDescripcion.setText(to.getMenu().getDescripcion());
-        txtHorario.setText(to.getHora_inicio());
+        txtHorario.setText(to.getHora_inicio().substring(0,5));
         txtPrecio.setText("$ " + df.format( to.getMonto_venta()));
-        txtHorarioFin.setText(to.getHora_fin());
+        txtHorarioFin.setText(to.getHora_fin().substring(0,5));
         ArrayList<ListPlatillosTO> array = to.getMenu().getPlatillos();
 
         for(int i = 0; i<array.size();i++){
@@ -98,7 +98,7 @@ public class DetalleMenuActivity extends App2GomActivity {
         reservacion.setPago_electronico(0);
         reservacion.setUuid_anfitrion(anfitrion.getUuid());
         reservacion.setUuid_calendario_menu(to.getUuid());
-        reservacion.setUuid_comensal(AppConstantes.USER.getUuid());
+        reservacion.setUuid_comensal(AppConstantes.getUser(getApplicationContext()).getUuid());
 
         addCover();
         controller.reservar(this, reservacion, new MessageResponseInterface<CompraTO>() {

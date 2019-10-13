@@ -132,7 +132,7 @@ public class MisComprasActivity extends App2GomActivity implements ComprasInterf
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         CalificacionTO to = new CalificacionTO();
-                        to.setUuid_comensal(AppConstantes.USER.getUuid());
+                        to.setUuid_comensal(AppConstantes.getUser(getApplicationContext()).getUuid());
                         to.setUuid_anfitrion(solicitud.getUuid_anfitrion());
                         to.setUuid_menu_calendario_comensal(solicitud.getUuid_relacion_menu());
                         RatingBar rating = v.findViewById(R.id.califica_anf);

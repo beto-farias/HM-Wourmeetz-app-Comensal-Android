@@ -116,7 +116,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
         Glide.with(this).asBitmap().load(R.drawable.logo).into(imageViewLogo);
 
-        txtNombreComensal.setText(AppConstantes.USER.getNombre_completo());
+        txtNombreComensal.setText(AppConstantes.getUser(getApplicationContext()).getNombre_completo());
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -442,7 +442,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     private void findNegociosEn(LatLng init, LatLng end){
-        controller.obtenerAnfitriones(this, AppConstantes.USER.getUuid(), init, end, new MessageListResponseInterface<AnfitrionTO>() {
+        controller.obtenerAnfitriones(this, init, end, new MessageListResponseInterface<AnfitrionTO>() {
             @Override
             public void response(String noInternetError, MessageResponse errorResponse, ListResponse<AnfitrionTO> responseMessage) {
                 if(!validateResponse(noInternetError, errorResponse)){

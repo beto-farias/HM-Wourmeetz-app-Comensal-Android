@@ -4,13 +4,49 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.google.gson.Gson;
+
 import mx.com.dgom.hm.wourmeetz_comensal.to.UserTO;
 
 public class AppConstantes {
 
     //Guardamos al usuario actual
-    public static UserTO USER;
-    public static String TOKEN;
+    //Guardamos al usuario actual
+    private static UserTO USER;
+    private static String TOKEN;
+
+
+    public static UserTO getUser(Context context){
+        Gson gson = new Gson();
+        if(USER == null){
+            String user = getStringProperty("USER", context);
+            if(user != null){
+                USER = gson.fromJson(user, UserTO.class);
+            }
+        }
+        return USER;
+    }
+
+    public static void setUser(UserTO user, Context context){
+        Gson gson= new Gson();
+        String u = gson.toJson(user);
+        setPreference("USER", u, context);
+        AppConstantes.USER = user;
+    }
+
+    public static String getToken(Context context){
+        if(TOKEN == null){
+            TOKEN = getStringProperty("TOKEN", context);
+
+        }
+        return TOKEN;
+    }
+
+    public static void setToken(String token, Context context){
+        setPreference("TOKEN", token, context);
+        AppConstantes.TOKEN = token;
+    }
+
 
     //Servicio de google maps
     //private static final String GOOGLE_API_KEY = "AIzaSyDkSJ6n7fvVF4-GiHs2vjP6VOiepGPBi2k";
@@ -71,6 +107,18 @@ public class AppConstantes {
         editor.commit();
     }
 
+    public static String  getStringProperty(String name, Context ctx){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ctx);
+        String res = preferences.getString(name, null);
+        return res;
+    }
+
+    public static void removePreference(String name, Context ctx){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ctx);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove(name);
+        editor.commit();
+    }
 
     //--------------
 
